@@ -5,7 +5,7 @@ export default function Navbar({ dark, setDark }) {
   return (
     <nav className="bg-white dark:bg-slate-900 shadow">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <Link to="/" className="font-bold text-xl text-primary">WATUCREDITKE</Link>
+        <Link to="/" className="font-bold text-xl text-primary">watucredite-cash</Link>
         <div className="flex items-center gap-4">
           <Link to="/shop" className="hover:underline">Shop</Link>
           <Link to="/contact" className="hover:underline">Contact</Link>
