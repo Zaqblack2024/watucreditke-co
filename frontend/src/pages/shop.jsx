@@ -6,6 +6,21 @@ export default function Shop() {
   const [products, setProducts] = useState([])
 
   useEffect(() => {
+    // In dev, prefer local mapped-products.json so you can work without a backend
+    if (import.meta.env.DEV) {
+      fetch('/data/mapped-products.json')
+        .then(res => res.json())
+        .then(setProducts)
+        .catch(err => {
+          console.warn('Failed to load mapped-products.json, falling back to API:', err)
+          axios.get(import.meta.env.VITE_API_URL + '/products')
+            .then(res => setProducts(res.data))
+            .catch(console.error)
+        })
+      return
+    }
+
+    // In production use the real API
     axios.get(import.meta.env.VITE_API_URL + '/products')
       .then(res => setProducts(res.data))
       .catch(console.error)
@@ -15,7 +30,7 @@ export default function Shop() {
     <div>
       <h2 className="text-2xl font-semibold mb-4">Shop</h2>
       <div className="grid gap-4 grid-cols-1 md:grid-cols-3">
-        {products.map(p => <ProductCard key={p._id} product={p} />)}
+        {products.map(p => <ProductCard key={p._id || p.sku} product={p} />)}
       </div>
     </div>
   )
