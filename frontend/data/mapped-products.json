@@ -1,0 +1,37 @@
+[
+  {
+    "_id": "boxer-001",
+    "sku": "BOXER-001",
+    "name": "Boxer Model A",
+    "price": 25000,
+    "image": "/images/boxer.jpg"
+  },
+  {
+    "_id": "honda-001",
+    "sku": "HONDA-001",
+    "name": "Honda Model X",
+    "price": 45000,
+    "image": "/images/honda.jpg"
+  },
+  {
+    "_id": "ranger-001",
+    "sku": "RANGER-001",
+    "name": "Ranger Model R",
+    "price": 30000,
+    "image": "/images/ranger.jpg"
+  },
+  {
+    "_id": "spiro-001",
+    "sku": "SPIRO-001",
+    "name": "Spiro Bike 100",
+    "price": 15000,
+    "image": "/images/spiro-bikes.jpg"
+  },
+  {
+    "_id": "tvs-001",
+    "sku": "TVS-001",
+    "name": "TVS Model Z",
+    "price": 12000,
+    "image": "/images/tvs.jpg"
+  }
+]
