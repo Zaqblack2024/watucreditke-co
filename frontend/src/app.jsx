@@ -8,6 +8,7 @@ import Contact from './pages/Contact'
 import Dashboard from './pages/Dashboard'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import { CartProvider } from './contexts/cart'
 
 export default function App() {
   const [dark, setDark] = useState(false)
@@ -16,19 +17,21 @@ export default function App() {
   }, [dark])
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <Navbar dark={dark} setDark={setDark} />
-      <main className="flex-grow container mx-auto px-4 py-8">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/shop" element={<Shop />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-        </Routes>
-      </main>
-      <Footer />
-    </div>
+    <CartProvider>
+      <div className="min-h-screen flex flex-col">
+        <Navbar dark={dark} setDark={setDark} />
+        <main className="flex-grow container mx-auto px-4 py-8">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/shop" element={<Shop />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </CartProvider>
   )
 }
