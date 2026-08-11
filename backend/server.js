@@ -6,6 +6,7 @@ const cors = require('cors')
 const authRoutes = require('./routes/auth')
 const productRoutes = require('./routes/products')
 const cartRoutes = require('./routes/cart')
+const motorbikeLoanRoutes = require('./routes/motorbike-loans')
 
 const app = express()
 app.use(cors())
@@ -14,6 +15,7 @@ app.use(express.json())
 app.use('/api/auth', authRoutes)
 app.use('/api/products', productRoutes)
 app.use('/api/cart', cartRoutes)
+app.use('/api/motorbike-loans', motorbikeLoanRoutes)
 
 app.get('/api/health', (req, res) => res.json({ ok: true }))
 
